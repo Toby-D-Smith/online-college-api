@@ -1,0 +1,5 @@
+{
+  "api": {
+    "expressPort": 3000
+  }
+}
