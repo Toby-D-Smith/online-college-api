@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model collection {
+  id               String             @id(map: "PK__collecti__3213E83F7A7B03C2") @db.UniqueIdentifier
+  name             String             @db.VarChar(50)
+  courseCollection courseCollection[]
+}
+
+model course {
+  id               String             @id(map: "PK__course__3213E83F5D4FF456") @db.UniqueIdentifier
+  name             String             @db.VarChar(50)
+  description      String             @default("", map: "DF__course__descript__24927208") @db.VarChar(50)
+  price            Decimal?           @db.Decimal(9, 2)
+  courseCollection courseCollection[]
+}
+
+model courseCollection {
+  id           String     @id(map: "PK__courseCo__3213E83FFB7A236D") @db.UniqueIdentifier
+  courseId     String     @db.UniqueIdentifier
+  collectionId String     @db.UniqueIdentifier
+  collection   collection @relation(fields: [collectionId], references: [id], onUpdate: NoAction, map: "FK__courseCol__colle__2A4B4B5E")
+  course       course     @relation(fields: [courseId], references: [id], onUpdate: NoAction, map: "FK__courseCol__cours__29572725")
+}
