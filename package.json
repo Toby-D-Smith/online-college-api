@@ -1,0 +1,19 @@
+{
+  "name": "open-study-college-api",
+  "version": "1.0.0",
+  "description": "Technical Assessment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Toby-D-Smith/open-study-college-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Toby-D-Smith/open-study-college-api/issues"
+  },
+  "homepage": "https://github.com/Toby-D-Smith/open-study-college-api#readme"
+}
