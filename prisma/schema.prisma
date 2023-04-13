@@ -8,15 +8,15 @@ datasource db {
 }
 
 model collection {
-  id               String             @id(map: "PK__collecti__3213E83F7A7B03C2") @db.UniqueIdentifier
+  id               String             @id(map: "PK__collecti__3213E83F7A7B03C2") @default(dbgenerated("newid()"), map: "df_id") @db.UniqueIdentifier
   name             String             @db.VarChar(50)
   courseCollection courseCollection[]
 }
 
 model course {
-  id               String             @id(map: "PK__course__3213E83F5D4FF456") @db.UniqueIdentifier
+  id               String             @id(map: "PK__course__3213E83F5D4FF456") @default(dbgenerated("newid()"), map: "course_id") @db.UniqueIdentifier
   name             String             @db.VarChar(50)
-  description      String             @default("", map: "DF__course__descript__24927208") @db.VarChar(50)
+  description      String?            @db.VarChar(Max)
   price            Decimal?           @db.Decimal(9, 2)
   courseCollection courseCollection[]
 }

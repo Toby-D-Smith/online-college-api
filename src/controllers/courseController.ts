@@ -15,7 +15,8 @@ export const getCourseById: RequestHandler = async (req: Request, res: Response)
 export const getCourses: RequestHandler = async (req: Request, res: Response) => {
   try {
     console.log('Getting Courses');
-    return res.status(200).json({});
+    const courses = await courseService.getCourses();
+    return res.status(200).json({ courses });
   } catch (e) {
     console.log(e);
     return res.status(500).json({ error: e });

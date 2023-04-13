@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { getCollectionById, getCollections } from '../controllers/collectionsController';
+import { getCollectionById, getCollections } from '../controllers/collectionController';
 
 export const collections: Router = express.Router();
 
