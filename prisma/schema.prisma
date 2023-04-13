@@ -18,6 +18,7 @@ model course {
   name             String             @db.VarChar(50)
   description      String?            @db.VarChar(Max)
   price            Decimal?           @db.Decimal(9, 2)
+  duration         String?            @db.VarChar(20)
   courseCollection courseCollection[]
 }
 
@@ -27,4 +28,10 @@ model courseCollection {
   collectionId String     @db.UniqueIdentifier
   collection   collection @relation(fields: [collectionId], references: [id], onUpdate: NoAction, map: "FK__courseCol__colle__2A4B4B5E")
   course       course     @relation(fields: [courseId], references: [id], onUpdate: NoAction, map: "FK__courseCol__cours__29572725")
+}
+
+model users {
+  id       String @id(map: "PK__users__3213E83F72E6D988") @default(dbgenerated("newid()"), map: "DF__users__id__31EC6D26") @db.UniqueIdentifier
+  username String @db.VarChar(50)
+  password String @db.VarChar(50)
 }
