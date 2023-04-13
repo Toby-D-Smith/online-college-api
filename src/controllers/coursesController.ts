@@ -1,11 +1,11 @@
 import { RequestHandler, Response, Request } from 'express';
+import { courseService } from '../services/courseServices';
 
 export const getCourseById: RequestHandler = async (req: Request, res: Response) => {
   try {
-    // console.log(req);
     const { id } = req.params;
-    console.log('Getting Course By Id', id);
-    return res.status(200).json({});
+    const course = await courseService.getCourseById(id);
+    return res.status(200).json({ course });
   } catch (e) {
     console.log(e);
     return res.status(500).json({ error: e });

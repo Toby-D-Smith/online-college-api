@@ -1,7 +1,7 @@
 import express from 'express';
 import config from 'config';
 import { courses } from './routes/course';
-import { collections } from './routes/collections';
+import { collections } from './routes/collection';
 
 const app = express();
 
