@@ -27,13 +27,12 @@ export const getCourses: RequestHandler = async (req: Request, res: Response) =>
     if (String(order).toLowerCase() === 'descending') {
       courses.sort((a, b) => -a.name.toUpperCase().localeCompare(b.name.toUpperCase()));
     }
-
     // Currently doing it this way to solve type errors
     let limit: number = courses.length;
     if (req.query.limit) {
-      limit = Number(req.query.limit);
+      limit = Math.min(Number(req.query.limit), limit);
     }
-    const limitedCourses = courses.slice(limit);
+    const limitedCourses = courses.slice(0, limit);
 
     return res.status(200).json({ courses: limitedCourses });
   } catch (e) {

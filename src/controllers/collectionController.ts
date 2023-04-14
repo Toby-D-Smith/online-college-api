@@ -27,10 +27,8 @@ export const getCollections: RequestHandler = async (req: Request, res: Response
     // Currently doing it this way to solve type errors
     let limit: number = collections.length;
     if (req.query.limit) {
-      limit = Number(req.query.limit);
+      limit = Math.min(Number(req.query.limit), limit);
     }
-    console.log(limit);
-
     const limitedCollections = collections.slice(0, limit);
 
     return res.status(200).json({ collections: limitedCollections });
