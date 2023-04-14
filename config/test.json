@@ -1,6 +1,0 @@
-{
-  "api": {
-    "expressPort": 3000
-  },
-  "test": true
-}
