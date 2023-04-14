@@ -15,3 +15,6 @@ Now you can get, post, put and delete courses, or get collections using the diff
 Some things I'd have liked to improve would be the validation of parameters. This would be making sure price is a number, that particular parameters exist when needed for example
 
 I've added one test to show that I know how however I would have liked to add a full test suite if more time was available. Ideally doing test driven developement however I focused on getting a working API
+
+The collections should also be linked to courses however I've also ran out of time to do this. To do this I would have created a new endpoint called linkCourseToCollection with both of the ID's, there would also be a delete here too.
+To display all the courses when looking at a single collection, I would have created a function in the routes service of getCoursesByCollectionId, which using prisma would have returned them.
